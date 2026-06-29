@@ -1,0 +1,38 @@
+@startuml
+left to right direction
+
+actor "مدیر آموزشگاه" as Admin
+actor "دانش‌آموز" as Student
+
+rectangle "سیستم مدیریت شهریه" {
+
+usecase "مدیریت مدارس" as UC1
+usecase "مدیریت پایه‌ها" as UC2
+usecase "مدیریت کلاس‌ها" as UC3
+usecase "تعریف شهریه" as UC4
+
+usecase "ثبت دانش‌آموز" as UC5
+usecase "ویرایش اطلاعات دانش‌آموز" as UC6
+
+usecase "ثبت پرداخت" as UC7
+usecase "پرداخت اقساطی" as UC8
+usecase "مشاهده پرونده مالی" as UC9
+usecase "مشاهده وضعیت بدهی" as UC10
+
+}
+
+Admin --> UC1
+Admin --> UC2
+Admin --> UC3
+Admin --> UC4
+Admin --> UC5
+Admin --> UC6
+Admin --> UC7
+Admin --> UC9
+Admin --> UC10
+
+Student --> UC10
+
+UC7 .> UC8 : <<extend>>
+
+@enduml
